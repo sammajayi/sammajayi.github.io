@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Samuel Ajayi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one centred card, name block on black, link stack below; single deliberate white/black/yellow look */
+:root{
+  --paper:#ffffff; --ink:#111111; --muted:#55524a; --line:#e7e4da; --yellow:#ffd400;
+  --display:"Bricolage Grotesque",Georgia,serif; --body:"Source Sans 3",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 48px;
+  display:flex;justify-content:center}
+.card{width:100%;max-width:420px;border:2px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--paper)}
+.top{background:var(--ink);color:#fff;padding:28px 24px 24px;display:grid;gap:6px}
+.mark{width:44px;height:6px;background:var(--yellow);margin-bottom:10px}
+h1{font-family:var(--display);font-weight:800;font-size:36px;line-height:1;margin:0;text-wrap:balance}
+.role{margin:0;color:#e9e6dc;font-size:15px}
+.where{margin:0;color:#bdb9ad;font-size:14px}
+.body{padding:20px 24px 24px;display:grid;gap:12px}
+.now{margin:0 0 4px;font-size:15px;color:var(--muted)}
+.now b{color:var(--ink)}
+a.link{display:flex;align-items:center;justify-content:space-between;gap:12px;text-decoration:none;color:var(--ink);
+  border:2px solid var(--ink);border-radius:4px;padding:14px 16px;font-weight:600;font-size:17px;transition:background .15s}
+a.link:hover{background:var(--yellow)}
+a.link:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+a.link.primary{background:var(--yellow);border-color:var(--yellow)}
+a.link.primary:hover{background:#ffe24d}
+.handle{font-weight:400;color:var(--muted);font-size:14px}
+.email{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:14px;margin-top:4px}
+.email span{user-select:all;font-size:15px;overflow-wrap:anywhere;min-width:0}
+button{font:600 14px var(--body);background:var(--ink);color:#fff;border:0;border-radius:4px;padding:8px 12px;cursor:pointer;flex-shrink:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:3px 7px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){a.link{transition:none}}
+</style>
+</head><body><main class="card">
+  <section class="top">
+    <div class="mark" aria-hidden="true"></div>
+    <h1>Samuel Ajayi</h1>
+    <p class="role">Frontend &amp; Solidity developer · Growth · Technical writer</p>
+    <p class="where">Ibadan, Nigeria · open to remote roles</p>
+  </section>
+  <section class="body">
+    <p class="now"><b>Bio:</b> Product and Growth Lead at Byro, an events and ticketing platform. Previously grew delulu to 800+ new users through an ambassador programme.</p>
+    <a class="link primary" href="https://www.linkedin.com/in/sammajayi" target="_blank" rel="noopener">LinkedIn <span class="handle">/in/sammajayi</span></a>
+    <a class="link" href="https://x.com/sammajayi" target="_blank" rel="noopener">X <span class="handle">@sammajayi</span></a>
+    <a class="link" href="https://github.com/sammajayi" target="_blank" rel="noopener">GitHub <span class="handle">sammajayi</span></a>
+    <div class="email">
+      <span id="em">samuelajayi554@gmail.com</span>
+      <button id="cp" type="button">Copy email</button>
+    </div>
+  </section>
+</main>
+
+<script>
+document.getElementById("cp").addEventListener("click", async (e) => {
+  const b = e.currentTarget, txt = document.getElementById("em").textContent;
+  try { await navigator.clipboard.writeText(txt); b.textContent = "Copied"; }
+  catch (_) { const r = document.createRange(); r.selectNodeContents(document.getElementById("em")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; }
+  setTimeout(() => b.textContent = "Copy email", 1600);
+});
+</script>
+</body></html>
